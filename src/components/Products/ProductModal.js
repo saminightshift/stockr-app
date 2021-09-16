@@ -1,65 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 
 
+export const Modal = ({showModal, setShowModal, children}) => {
 
-class ProductModal extends Component{
-    constructor(props) {
-        super(props);
+    // TODO clean up and complete this component
 
-        this.state = {
-            modal: false,
-        }
-    }
+    return (
+        <>
 
-    modalOpen() {
-        this.setState({
-            modal: true
-        });
-    }
-
-    modalClose() {
-        this.setState({
-            modal:false
-        })
-    }
-    
-
-    render(){
-
-        const ModalContent = ({handleClose, show, children}) => {
-            const showHideClassName = show ? "modal d-block" : "modal d-none";
-        
-            return (
-              <>
-                <button onClick={e=>this.modalOpen(e)} type="button" className="btn btn-primary" style={{width:"100%"}}>View details</button>
-                  <div className={showHideClassName}>
-                   {/* Modal content follows... */}
-                        <div show={this.state.modal} className="modal-container " tabIndex="-1">
-                                <div className="modal-header" >
-                                    <h5 className="modal-title">Product Overview</h5>
-                                </div>
-                                <div className="modal-body">
-                                    {children}
-                                </div>
-                                <div className="modal-footer">
-                                    {/* Event handler for btn needed*/ }
-                                    <button type="button" className="btn btn-secondary" onClick={e => this.modalClose(e)} >Close</button>
-                                </div>
-                        </div>
-                    </div>
-                </>
-            );
-        }
-        
-        return(
-            <div>
-                {ModalContent}
-            </div>
-        )    
-
-
-
-    }
+           {showModal ? (
+           
+           <div className="modal-container">
+               <div className="modal-header">
+                   Product Overview
+               </div>
+               <div className="modal-body">
+                {children}
+               </div>
+               <div className="modal-footer">
+               <button type="button" className="btn btn-secondary" onClick={() => setShowModal(prev => !prev)} >Close</button>
+               </div>
+           </div>
+           
+           ) : null}
+        </>
+    )
 }
-
-export default ProductModal;

@@ -1,12 +1,16 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import ProductModal from "./ProductModal";
+import { Modal } from "./ProductModal";
 
 const ProductCard = () => {
 
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
+
+    const [showModal, setShowModal] = useState(false);
+
+
 
 
     useEffect(() => {
@@ -24,7 +28,11 @@ const ProductCard = () => {
        })
     }
 
+    // TODO clean up and complete this component
 
+    const openModal = () => {
+        setShowModal(prev => !prev)
+    }
 
     return(
         <>
@@ -41,8 +49,11 @@ const ProductCard = () => {
                     <br/>
                     <span className="card-text text-muted fs-6">Product Code: {product.sku} </span>
                 </p> 
-                <hr/>               
-                <ProductModal/>
+                <hr/> 
+                <button id={product.id} onClick={openModal} type="button" className="btn btn-primary" style={{width:"100%"}}>View details</button>
+              
+                <Modal showModal={showModal} setShowModal={setShowModal}/>
+                
             </div>
             </div>
             </div>

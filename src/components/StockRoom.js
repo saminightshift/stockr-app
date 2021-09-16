@@ -2,10 +2,6 @@ import { Component } from "react";
 import ProductCard from "./Products/ProductCard";
 
 export default class StockRoom extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <>
