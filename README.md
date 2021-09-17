@@ -9,6 +9,9 @@ Point of sale component - drawing from inventory display stock on one side of vi
 
 Future sprint will include Data Center component, team log in for each store and warehouse, track sales and income.
 
+
+![Stockr Inventory View](https://raw.githubusercontent.com/saminightshift/stockr-app/master/public/Stockr-inventory.png)
+
 ------------------------------------
 
 Install dependencies.
